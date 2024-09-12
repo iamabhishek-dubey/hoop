@@ -17,7 +17,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const searchApiURI = "/api/plugins/indexer/sessions/search"
+const searchApiURI = "/v1/api/plugins/indexer/sessions/search"
 
 var markResultsFlag bool
 var limitFlag int

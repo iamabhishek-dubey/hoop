@@ -106,15 +106,15 @@ func (a *Api) StartAPI(sentryInit bool) {
 	if staticUiPath == "" {
 		staticUiPath = "/app/ui/public"
 	}
-	route.Use(static.Serve("/", static.LocalFile(staticUiPath, false)))
+	route.Use(static.Serve("/web-v1/", static.LocalFile(staticUiPath, false)))
 	route.NoRoute(func(c *gin.Context) {
-		if !strings.HasPrefix(c.Request.RequestURI, "/api") {
+		if !strings.HasPrefix(c.Request.RequestURI, "/v1/api") {
 			c.File(fmt.Sprintf("%s/index.html", staticUiPath))
 			return
 		}
 	})
 
-	rg := route.Group("/api")
+	rg := route.Group("/v1/api")
 	if sentryInit {
 		rg.Use(sentrygin.New(sentrygin.Options{
 			Repanic: true,

@@ -113,7 +113,7 @@ services:
       idp-provisioner:
         condition: service_completed_successfully
     healthcheck:
-      test: "curl http://127.0.0.1:8009/api/healthz"
+      test: "curl http://127.0.0.1:8009/v1/api/healthz"
       interval: "2s"
       timeout: "30s"
       retries: 10

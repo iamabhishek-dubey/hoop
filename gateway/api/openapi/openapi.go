@@ -22,7 +22,7 @@ func Handler(c *gin.Context) {
 	if swagger := swag.GetSwagger(instanceName); swagger != nil {
 		if spec, ok := swagger.(*swag.Spec); ok {
 			spec.Host = appconfig.Get().ApiHost()
-			spec.BasePath = "/api"
+			spec.BasePath = "/v1/api"
 			spec.Version = version.Get().Version
 		}
 		c.Header("Content-Type", "application/json; charset=utf-8")
@@ -38,7 +38,7 @@ func HandlerV3(c *gin.Context) {
 	if swagger := swag.GetSwagger(instanceName); swagger != nil {
 		if spec, ok := swagger.(*swag.Spec); ok {
 			spec.Host = appconfig.Get().ApiHost()
-			spec.BasePath = "/api"
+			spec.BasePath = "/v1/api"
 			spec.Version = version.Get().Version
 		}
 		v3Doc, err := toV3([]byte(swagger.ReadDoc()))

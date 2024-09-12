@@ -156,7 +156,7 @@ func NewProvider(apiURL string) *Provider {
 	conf := oauth2.Config{
 		ClientID:     provider.ClientID,
 		ClientSecret: provider.ClientSecret,
-		RedirectURL:  apiURL + "/api/callback",
+		RedirectURL:  apiURL + "/v1/api/callback",
 		Endpoint:     oidcProvider.Endpoint(),
 		Scopes:       scopes,
 	}

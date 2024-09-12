@@ -12,7 +12,7 @@ if [[ "$HOOP_TLS_MODE" == "enabled" ]]; then
 fi
 
 reload-nginx() {
-    until curl -k -s -f -o /dev/null "http://gateway:8009/api/healthz"; do
+    until curl -k -s -f -o /dev/null "http://gateway:8009/v1/api/healthz"; do
       sleep 1
     done
     sed "s|127.0.0.1:8009|gateway:8009|g;s|127.0.0.1:8010|gateway:8010|g" -i /etc/nginx/nginx.conf

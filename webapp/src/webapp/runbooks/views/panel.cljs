@@ -15,7 +15,7 @@
   [:div {:class "pt-large"}
    [:figure
     {:class "w-3/4 mx-auto p-regular"}
-    [:img {:src "/images/illustrations/disk.svg"
+    [:img {:src "/web-v1/images/illustrations/disk.svg"
            :class "w-full"}]]
    [:div {:class "px-large text-center"}
     [:div {:class "text-gray-700 text-sm font-bold mb-small"}
@@ -30,7 +30,7 @@
 (defn- no-integration-templates-view []
   [:div {:class "pt-large flex flex-col gap-regular items-center"}
    [:figure {:class "w-3/4"}
-    [:img {:src "/images/illustrations/typingmachine.svg"
+    [:img {:src "/web-v1/images/illustrations/typingmachine.svg"
            :class "w-full"}]]
    [:div {:class "flex flex-col items-center text-center"}
     [:div {:class "text-gray-700 text-sm font-bold"}

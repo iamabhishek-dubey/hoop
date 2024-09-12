@@ -67,7 +67,7 @@ var serverInfoCmd = &cobra.Command{
 		if outputFlag == "json" {
 			decodeTo = "raw"
 		}
-		obj, _, err := httpRequest(&apiResource{suffixEndpoint: "/api/serverinfo", conf: conf, decodeTo: decodeTo})
+		obj, _, err := httpRequest(&apiResource{suffixEndpoint: "/v1/api/serverinfo", conf: conf, decodeTo: decodeTo})
 		if err != nil {
 			out := styles.ClientErrorSimple(fmt.Sprintf("failed obtaining server info response, reason=%v", err))
 			fmt.Println(out)
@@ -129,7 +129,7 @@ var openWebhooksDashboardCmd = &cobra.Command{
 	Aliases: []string{"webhook-dashboard"},
 	Run: func(cmd *cobra.Command, args []string) {
 		conf := clientconfig.GetClientConfigOrDie()
-		obj, _, err := httpRequest(&apiResource{suffixEndpoint: "/api/webhooks-dashboard", conf: conf, decodeTo: "object"})
+		obj, _, err := httpRequest(&apiResource{suffixEndpoint: "/v1/api/webhooks-dashboard", conf: conf, decodeTo: "object"})
 		if err != nil {
 			out := styles.ClientErrorSimple(fmt.Sprintf("failed open webhooks dashboard, error=%v", err))
 			fmt.Println(out)

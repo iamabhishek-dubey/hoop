@@ -9,7 +9,7 @@
 
 (def routes
   (atom
-   ["/" {"" :home
+   ["/web-v1/" {"" :home
          "404" :404
          "auth/callback" :auth-callback-hoop
          "connections" [["" :connections]

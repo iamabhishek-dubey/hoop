@@ -266,7 +266,7 @@ func toStr(v any) string {
 }
 
 func pluginHandler(apir *apiResource) func(connectionName string, trunc bool) string {
-	data, _, err := httpRequest(&apiResource{suffixEndpoint: "/api/plugins", conf: apir.conf, decodeTo: "list"})
+	data, _, err := httpRequest(&apiResource{suffixEndpoint: "/v1/api/plugins", conf: apir.conf, decodeTo: "list"})
 	if err != nil {
 		log.Debugf("failed retrieving list of plugins, err=%v", err)
 	}
@@ -311,7 +311,7 @@ func pluginHandler(apir *apiResource) func(connectionName string, trunc bool) st
 }
 
 func agentConnectedHandler(conf *clientconfig.Config) func(key, agentID string) string {
-	data, _, err := httpRequest(&apiResource{suffixEndpoint: "/api/agents", conf: conf, decodeTo: "list"})
+	data, _, err := httpRequest(&apiResource{suffixEndpoint: "/v1/api/agents", conf: conf, decodeTo: "list"})
 	if err != nil {
 		log.Debugf("failed retrieving list of connected agents, err=%v", err)
 	}

@@ -19,7 +19,7 @@
   [:div {:class "pt-x-large"}
    [:figure
     {:class "w-3/4 mx-auto p-regular"}
-    [:img {:src "/images/illustrations/gameboy.svg"
+    [:img {:src "/web-v1/images/illustrations/gameboy.svg"
            :class "w-full"}]]
    [:div {:class "px-large text-center"}
     [:div {:class "text-gray-700 text-sm font-bold"}

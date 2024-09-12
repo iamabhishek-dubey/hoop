@@ -173,7 +173,7 @@ var createConnectionCmd = &cobra.Command{
 		var plugins []string
 		for _, pluginData := range pluginList {
 			_, err := httpBodyRequest(&apiResource{
-				suffixEndpoint: fmt.Sprintf("/api/plugins/%v", pluginData["name"]),
+				suffixEndpoint: fmt.Sprintf("/v1/api/plugins/%v", pluginData["name"]),
 				method:         "PUT",
 				conf:           config,
 				decodeTo:       "object"}, "PUT", pluginData)
@@ -246,7 +246,7 @@ func parseEnvPerType() (map[string]string, error) {
 
 func getConnection(conf *clientconfig.Config, connectionName string) (bool, error) {
 	resp, _, err := httpRequest(&apiResource{
-		suffixEndpoint: fmt.Sprintf("/api/connections/%v", connectionName),
+		suffixEndpoint: fmt.Sprintf("/v1/api/connections/%v", connectionName),
 		method:         "GET",
 		conf:           conf,
 		decodeTo:       "object"})
@@ -263,7 +263,7 @@ func getConnection(conf *clientconfig.Config, connectionName string) (bool, erro
 }
 
 func getAgentIDByName(conf *clientconfig.Config, name string) (string, error) {
-	data, _, err := httpRequest(&apiResource{suffixEndpoint: "/api/agents", conf: conf, decodeTo: "list"})
+	data, _, err := httpRequest(&apiResource{suffixEndpoint: "/v1/api/agents", conf: conf, decodeTo: "list"})
 	if err != nil {
 		return "", err
 	}

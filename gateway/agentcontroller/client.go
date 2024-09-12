@@ -34,22 +34,22 @@ func NewApiClient() (*apiClient, error) {
 
 func (c *apiClient) List() ([]agentcontroller.Deployment, error) {
 	var items []agentcontroller.Deployment
-	return items, c.http("GET", "/api/agents", nil, &items)
+	return items, c.http("GET", "/v1/api/agents", nil, &items)
 }
 
 func (c *apiClient) Update(req *agentcontroller.AgentRequest) (*agentcontroller.AgentResponse, error) {
 	resp := &agentcontroller.AgentResponse{}
-	return resp, c.http("PUT", "/api/agents", req, resp)
+	return resp, c.http("PUT", "/v1/api/agents", req, resp)
 }
 
 func (c *apiClient) Remove(name, id string) error {
-	uri := "/api/agents/" + name + "?id=" + id
+	uri := "/v1/api/agents/" + name + "?id=" + id
 	return c.http("DELETE", uri, nil, nil)
 }
 
 func (c *apiClient) Healthz() error {
 	resp := map[string]any{}
-	if err := c.http("GET", "/api/healthz", nil, &resp); err != nil {
+	if err := c.http("GET", "/v1/api/healthz", nil, &resp); err != nil {
 		return err
 	}
 	if resp["status"] != "OK" {

@@ -115,7 +115,7 @@
                        :text "Access your app options to sign in to your hoop account and start a hoop access."
                        :component [:div
                                    [:figure {:class "flex"}
-                                    [:img {:src "/images/hoop-app-tray.png"
+                                    [:img {:src "/web-v1/images/hoop-app-tray.png"
                                            :alt "Hoop app tray screen"}]]]
                        :extra-step {:title (str "Connect to " connection-name)
                                     :text "Establish a hoop access to your connection once your hoop is indicated as online."
