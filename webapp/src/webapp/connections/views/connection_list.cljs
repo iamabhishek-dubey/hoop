@@ -13,7 +13,7 @@
   [:div {:class "pt-x-large"}
    [:figure
     {:class "w-1/6 mx-auto p-regular"}
-    [:img {:src "/images/illustrations/pc.svg"
+    [:img {:src "/web-v1/images/illustrations/pc.svg"
            :class "w-full"}]]
    [:div {:class "px-large text-center"}
     [:div {:class "text-gray-700 text-sm font-bold"}

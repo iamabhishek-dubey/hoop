@@ -5,7 +5,7 @@ cd /app/
 echo "--> STARTING GATEWAY ..."
 /app/hooplinux start gateway &
 
-until curl -s -f -o /dev/null "http://127.0.0.1:8009/api/healthz"
+until curl -s -f -o /dev/null "http://127.0.0.1:8009/v1/api/healthz"
 do
   sleep 1
 done

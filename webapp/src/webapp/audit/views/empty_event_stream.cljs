@@ -5,7 +5,7 @@
    {:class (str "flex flex-col gap-regular justify-center items-center text-center"
                 " h-96 py-large bg-gray-100 rounded-lg")}
    [:figure {:class "w-40"}
-    [:img {:src "/images/illustrations/pc+monitor.svg"}]]
+    [:img {:src "/web-v1/images/illustrations/pc+monitor.svg"}]]
    [:div {:class "px-x-large"}
     [:p {:class "text-sm text-gray-600 font-bold"}
      (str "This session needs to be reviewed or executed.")]

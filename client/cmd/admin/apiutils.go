@@ -61,32 +61,32 @@ func parseResourceOrDie(args []string, method, outputFlag string) *apiResource {
 		apir.resourceGet = false
 		apir.resourceDelete = true
 		apir.resourceCreate = true
-		apir.suffixEndpoint = path.Join("/api/agents", apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/agents", apir.name)
 		if method == "POST" {
-			apir.suffixEndpoint = "/api/agents"
+			apir.suffixEndpoint = "/v1/api/agents"
 		}
 	case "conn", "connection", "connections":
 		apir.resourceDelete = true
 		apir.resourceCreate = true
 		apir.resourceUpdate = true
-		apir.suffixEndpoint = path.Join("/api/connections", apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/connections", apir.name)
 		if method == "POST" {
-			apir.suffixEndpoint = "/api/connections"
+			apir.suffixEndpoint = "/v1/api/connections"
 		}
 	case "orglicense":
 		apir.resourceGet = true
 		apir.resourceCreate = true
 		apir.resourceUpdate = true
-		apir.suffixEndpoint = "/api/orgs/license"
+		apir.suffixEndpoint = "/v1/api/orgs/license"
 		if method == "POST" {
-			apir.suffixEndpoint = "/api/orgs/license/sign"
+			apir.suffixEndpoint = "/v1/api/orgs/license/sign"
 		}
 		apir.name = "_"
 	case "orgkey", "orgkeys":
 		apir.resourceDelete = true
 		apir.resourceList = true
 		apir.resourceCreate = true
-		apir.suffixEndpoint = "/api/orgs/keys"
+		apir.suffixEndpoint = "/v1/api/orgs/keys"
 		defer func() {
 			apir.name = ""
 			if outputFlag == "" {
@@ -96,14 +96,14 @@ func parseResourceOrDie(args []string, method, outputFlag string) *apiResource {
 		apir.name = "_"
 	case "sessions":
 		apir.resourceList = false
-		apir.suffixEndpoint = path.Join("/api/sessions", apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/sessions", apir.name)
 	case "users":
 		apir.resourceUpdate = true
 		apir.resourceCreate = true
 		apir.resourceDelete = true
-		apir.suffixEndpoint = path.Join("/api/users", apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/users", apir.name)
 		if method == "POST" {
-			apir.suffixEndpoint = "/api/users"
+			apir.suffixEndpoint = "/v1/api/users"
 		}
 	case "userinfo":
 		defer func() {
@@ -113,40 +113,40 @@ func parseResourceOrDie(args []string, method, outputFlag string) *apiResource {
 		}()
 		apir.resourceList = true
 		apir.resourceGet = false
-		apir.suffixEndpoint = "/api/userinfo"
+		apir.suffixEndpoint = "/v1/api/userinfo"
 	case "serviceaccount", "serviceaccounts", "sa":
 		apir.resourceList = true
 		apir.resourceUpdate = true
 		apir.resourceCreate = true
-		apir.suffixEndpoint = path.Join("/api/serviceaccounts", apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/serviceaccounts", apir.name)
 		if method == "POST" {
-			apir.suffixEndpoint = "/api/serviceaccounts"
+			apir.suffixEndpoint = "/v1/api/serviceaccounts"
 		}
 	case "review", "reviews":
-		apir.suffixEndpoint = path.Join("/api/reviews", apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/reviews", apir.name)
 	case "plugin", "plugins":
 		apir.resourceCreate = true
 		apir.resourceUpdate = true
 		apir.suffixEndpoint = path.Join("/api/plugins", apir.name)
 		if method == "POST" {
-			apir.suffixEndpoint = "/api/plugins"
+			apir.suffixEndpoint = "/v1/api/plugins"
 		}
 	case "policies", "policy":
 		apir.resourceList = true
 		apir.resourceDelete = true
 		apir.resourceGet = false
-		apir.suffixEndpoint = "/api/policies"
+		apir.suffixEndpoint = "/v1/api/policies"
 		if method == "DELETE" {
-			apir.suffixEndpoint = path.Join("/api/policies", apir.name)
+			apir.suffixEndpoint = path.Join("/v1/api/policies", apir.name)
 		}
 	case "datamasking", "accesscontrol":
 		apir.resourceCreate = true
 		apir.resourceUpdate = true
 		apir.resourceGet = false
 		apir.resourceList = false
-		apir.suffixEndpoint = path.Join("/api/policies", apir.resourceType, apir.name)
+		apir.suffixEndpoint = path.Join("/v1/api/policies", apir.resourceType, apir.name)
 		if method == "POST" {
-			apir.suffixEndpoint = path.Join("/api/policies", apir.resourceType)
+			apir.suffixEndpoint = path.Join("/v1/api/policies", apir.resourceType)
 		}
 	case "runbooks":
 		// force to decode as object
@@ -154,7 +154,7 @@ func parseResourceOrDie(args []string, method, outputFlag string) *apiResource {
 		apir.name = "noop"
 
 		apir.resourceList = false
-		apir.suffixEndpoint = "/api/plugins/runbooks/templates"
+		apir.suffixEndpoint = "/v1/api/plugins/runbooks/templates"
 	default:
 		styles.PrintErrorAndExit("resource type %q not supported", apir.resourceType)
 	}

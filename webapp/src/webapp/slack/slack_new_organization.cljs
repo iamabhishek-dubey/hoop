@@ -3,7 +3,7 @@
 (defn main []
   [:div {:class "bg-white h-full pt-x-large"}
    [:figure {:class "w-1/3 mx-auto p-regular"}
-    [:img {:src "/images/illustrations/keyboard.svg"
+    [:img {:src "/web-v1/images/illustrations/keyboard.svg"
            :class "w-full"}]]
    [:div {:class "px-large py-large text-center"}
     [:div {:class "text-gray-700 text-sm font-bold"}

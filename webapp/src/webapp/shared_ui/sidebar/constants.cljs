@@ -5,7 +5,7 @@
               :label "Home"
               :icon (fn [props]
                       [:> hero-outline-icon/CodeBracketSquareIcon props])
-              :uri "/client"
+              :uri "/web-v1/client"
               :navigate :editor-plugin
               :free-feature? true
               :admin-only? false}
@@ -13,14 +13,14 @@
               :label "Dashboard"
               :icon (fn [props]
                       [:> hero-outline-icon/RectangleGroupIcon props])
-              :uri "/dashboard"
+              :uri "/web-v1/dashboard"
               :navigate :dashboard
               :free-feature? true
               :admin-only? true}
              {:name "Sessions"
               :icon (fn [props]
                       [:> hero-outline-icon/RectangleStackIcon props])
-              :uri "/sessions"
+              :uri "/web-v1/sessions"
               :free-feature? true
               :admin-only? false}])
 

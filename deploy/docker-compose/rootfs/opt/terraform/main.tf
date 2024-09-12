@@ -122,9 +122,9 @@ resource "zitadel_application_oidc" "default" {
 
   name = "hoopdev-default-app"
   redirect_uris = [
-    "http://127.0.0.1/api/callback",
-    "https://127.0.0.1/api/callback",
-    "${local.public_url}/api/callback",
+    "http://127.0.0.1/v1/api/callback",
+    "https://127.0.0.1/v1/api/callback",
+    "${local.public_url}/v1/api/callback",
   ]
   response_types = ["OIDC_RESPONSE_TYPE_CODE"]
   grant_types    = ["OIDC_GRANT_TYPE_AUTHORIZATION_CODE"]

@@ -93,7 +93,7 @@ var createPluginCmd = &cobra.Command{
 
 func putConfig(conf *clientconfig.Config, pluginName string, envVars map[string]any) (any, error) {
 	return httpBodyRequest(&apiResource{
-		suffixEndpoint: fmt.Sprintf("/api/plugins/%v/config", pluginName),
+		suffixEndpoint: fmt.Sprintf("/v1/api/plugins/%v/config", pluginName),
 		method:         "PUT",
 		conf:           conf,
 		decodeTo:       "object"}, "PUT", envVars)
@@ -101,7 +101,7 @@ func putConfig(conf *clientconfig.Config, pluginName string, envVars map[string]
 
 func getPlugin(conf *clientconfig.Config, pluginName string) (map[string]any, error) {
 	resp, _, err := httpRequest(&apiResource{
-		suffixEndpoint: fmt.Sprintf("/api/plugins/%v", pluginName),
+		suffixEndpoint: fmt.Sprintf("/v1/api/plugins/%v", pluginName),
 		method:         "GET",
 		conf:           conf,
 		decodeTo:       "object"})
@@ -180,7 +180,7 @@ func parsePluginConnections(conf *clientconfig.Config) ([]map[string]any, error)
 
 func listConnectionNames(conf *clientconfig.Config) (map[string]string, error) {
 	resp, _, err := httpRequest(&apiResource{
-		suffixEndpoint: "/api/connections",
+		suffixEndpoint: "/v1/api/connections",
 		method:         "GET",
 		conf:           conf,
 		decodeTo:       "list"})

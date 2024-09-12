@@ -158,7 +158,7 @@ func doLogin(apiURL, tlsCA string) (string, error) {
 
 func requestForUrl(apiUrl, tlsCA string) (string, error) {
 	c := httpclient.NewHttpClient(tlsCA)
-	url := fmt.Sprintf("%s/api/login", apiUrl)
+	url := fmt.Sprintf("%s/v1/api/login", apiUrl)
 
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
@@ -169,7 +169,7 @@ func requestForUrl(apiUrl, tlsCA string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	log.Debugf("GET %s/api/login status=%v", apiUrl, resp.StatusCode)
+	log.Debugf("GET %s/v1/api/login status=%v", apiUrl, resp.StatusCode)
 	defer resp.Body.Close()
 	var l login
 	if err := json.NewDecoder(resp.Body).Decode(&l); err != nil {
@@ -182,7 +182,7 @@ func requestForUrl(apiUrl, tlsCA string) (string, error) {
 }
 
 func fetchGrpcURL(apiURL, bearerToken, tlsCA string) (string, error) {
-	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("%s/api/serverinfo", apiURL), nil)
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("%s/v1/api/serverinfo", apiURL), nil)
 	if err != nil {
 		return "", err
 	}
@@ -191,7 +191,7 @@ func fetchGrpcURL(apiURL, bearerToken, tlsCA string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	log.Debugf("GET %s/api/serverinfo status=%v", apiURL, resp.StatusCode)
+	log.Debugf("GET %s/v1/api/serverinfo status=%v", apiURL, resp.StatusCode)
 	switch resp.StatusCode {
 	case http.StatusOK:
 		defer resp.Body.Close()

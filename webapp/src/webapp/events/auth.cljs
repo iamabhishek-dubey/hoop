@@ -8,7 +8,7 @@
    (let [on-success #(.replace js/window.location (:login_url %))
          get-email [:fetch {:method "GET"
                             :uri (str "/login?prompt=login&redirect="
-                                      (str (. (. js/window -location) -origin) "/auth/callback"))
+                                      (str (. (. js/window -location) -origin) "/web-v1/auth/callback"))
                             :on-success on-success}]]
      {:fx [[:dispatch get-email]]})))
 
@@ -18,7 +18,7 @@
    (let [on-success #(.replace js/window.location (:login_url %))
          get-email [:fetch {:method "GET"
                             :uri (str "/login?prompt=login&screen_hint=signup&redirect="
-                                      (str (. (. js/window -location) -origin) "/signup/callback"))
+                                      (str (. (. js/window -location) -origin) "/web-v1/signup/callback"))
                             :on-success on-success}]]
      {:fx [[:dispatch get-email]]})))
 

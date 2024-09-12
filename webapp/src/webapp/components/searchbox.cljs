@@ -28,7 +28,7 @@
   [:div {:class "flex gap-regular items-center"}
    [:figure
     {:class "flex-shrink w-32 mx-auto p-regular"}
-    [:img {:src "/images/illustrations/pc+monitor.svg"
+    [:img {:src "/web-v1/images/illustrations/pc+monitor.svg"
            :class "w-full"}]]
    [:div {:class "flex-grow"}
     [:div {:class "text-gray-700 text-sm font-bold"}

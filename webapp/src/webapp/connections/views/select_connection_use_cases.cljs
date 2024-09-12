@@ -18,7 +18,7 @@
                           :type "database"])}
        [:figure {:class "w-full rounded-lg border mb-2"}
         [:img {:class "w-full h-28 p-3"
-               :src "/images/database-connections.svg"}]]
+               :src "/web-v1/images/database-connections.svg"}]]
        [:div {:class "flex flex-col justify-center items-center"}
         [h/h4-md "Database"]]]
       [:div {:class "flex flex-col items-center border rounded-lg cursor-pointer hover:shadow p-4"
@@ -29,7 +29,7 @@
                           :type "application"])}
        [:figure {:class "w-full rounded-lg border mb-2"}
         [:img {:class "w-full h-28 p-3"
-               :src "/images/application-connections.svg"}]]
+               :src "/web-v1/images/application-connections.svg"}]]
        [:div {:class "flex flex-col justify-center items-center"}
         [h/h4-md "Application"]]]
       [:div {:class "col-span-2 flex items-center border rounded-lg cursor-pointer hover:shadow p-4"
@@ -40,7 +40,7 @@
                           :type "custom"])}
        [:figure {:class "rounded-lg border"}
         [:img {:class "w-full p-3"
-               :src "/images/custom-connections-small.svg"}]]
+               :src "/web-v1/images/custom-connections-small.svg"}]]
        [:div {:class "flex flex-col pl-3 justify-center"}
         [h/h4-md "Custom"]
         [:span {:class "mt-2 text-sm text-center text-gray-500"}
